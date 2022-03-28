@@ -1,8 +1,6 @@
 import React, {useCallback} from 'react';
 import cn from 'classnames';
-import Button from '@mui/material/Button';
 import ButtonUnstyled from '@mui/base/ButtonUnstyled';
-import {makeStyles} from '@mui/styles';
 
 import Panel from '../../common/Panel';
 import {settings} from '../hooks/useSettings';
@@ -15,21 +13,7 @@ interface IProps {
   onLevelChange: (level: SettingsLevel) => void;
 }
 
-const useStyles = makeStyles({
-  button: {
-    marginRight: 10,
-    padding: '10 15px',
-    border: 'none',
-    color: 'var(--text-primary-color) !important',
-    borderRadius: 6,
-    backgroundColor: 'transparent',
-    cursor: 'pointer',
-    transition: 'background-color 200ms',
-  },
-});
-
 function Settings({className = '', level, onLevelChange}: IProps) {
-  const classes = useStyles();
 
   const handleLevelChange = useCallback(
     (settingsLevel: SettingsLevel) => () => onLevelChange(settingsLevel),
